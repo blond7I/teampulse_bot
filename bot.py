@@ -93,7 +93,9 @@ async def cmd_start(message: Message):
             START_MESSAGE + f"\nID этого чата для команды /join: <code>{message.chat.id}</code>"
         )
     else:
-        await message.answer("Команда уже зарегистрирована.")
+        await message.answer(
+            f"Команда уже зарегистрирована.\nID этого чата для команды /join: <code>{message.chat.id}</code>"
+        )
 
 
 @router.message(Command("join"))
@@ -103,7 +105,7 @@ async def cmd_join(message: Message):
         return
     args = message.text.split()
     if len(args) < 2:
-        await message.answer("Используйте: /join <chat_id_группы>")
+        await message.answer("Используйте: /join ID_ГРУППЫ")
         return
     try:
         chat_id = int(args[1])
