@@ -90,11 +90,12 @@ async def cmd_start(message: Message):
     if not team:
         await create_team(message.chat.id, message.chat.title or "Team")
         await message.answer(
-            START_MESSAGE + f"\nID этого чата для команды /join: <code>{message.chat.id}</code>"
+            START_MESSAGE
+            + f"\n\nЧтобы присоединиться, каждый участник пишет боту в личку ровно эту команду:\n<code>/join {message.chat.id}</code>"
         )
     else:
         await message.answer(
-            f"Команда уже зарегистрирована.\nID этого чата для команды /join: <code>{message.chat.id}</code>"
+            f"Команда уже зарегистрирована.\n\nЧтобы присоединиться, каждый участник пишет боту в личку ровно эту команду:\n<code>/join {message.chat.id}</code>"
         )
 
 
